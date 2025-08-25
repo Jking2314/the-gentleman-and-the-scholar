@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gentleman And The Scholar</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #ffffff;
+            --accent-color: #a08c5b;
+            --font-family-serif: 'Playfair Display', serif;
+            --font-family-sans: 'Lato', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family-sans);
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        .logo {
+            font-family: var(--font-family-serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1621217637894-3d07e997eddf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHw1fHxjbGFzc3klMjBtZW4lMjBmYXNoaW9ufGVufDB8fHx8MTcwODY0MzY0NXww&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-family-serif);
+            font-size: 4rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 1rem auto 2rem;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #8c7a4e;
+            transform: scale(1.05);
+        }
+
+        .section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .section-header {
+            font-family: var(--font-family-serif);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            border: 1px solid #e0e0e0;
+            padding: 1.5rem;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--secondary-color);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            font-family: var(--font-family-serif);
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem;
+        }
+
+        .product-card p {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .footer-links a {
+            color: var(--secondary-color);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-text {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">The Gentleman And The Scholar</a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#products">Shop</a>
+            <a href="#contact">Contact</a>
+            <a href="#">Cart (0)</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Crafting Timeless Style</h1>
+                <p>Curated apparel for the modern man who values both substance and style. Redefine your wardrobe with pieces that are built to last.</p>
+                <a href="#products" class="cta-button">Explore the Collection</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2 class="section-header">Our Philosophy</h2>
+            <p>At **The Gentleman And The Scholar**, we believe that true style is a reflection of character. We focus on high-quality materials, impeccable craftsmanship, and classic designs that transcend fleeting trends. Our collection is for those who appreciate the art of dressing well—thoughtfully, purposefully, and with a nod to timeless elegance.</p>
+        </section>
+
+        ---
+
+        <section id="products" class="section">
+            <h2 class="section-header">The Collection</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c1756b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxNXx8bWVuJTIwYmFzaWMlMjB0ZWUlMjBzaGlydHxlbnwwfHx8fDE3MDg2NDM4MTN8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Classic White Oxford Shirt">
+                    <h3>The Classic Oxford</h3>
+                    <p>$85.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1551854497-6a169b122703?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxMnx8bWVuJTIwc3VpdHxlbnwwfHx8fDE3MDg2NDM3ODR8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Charcoal Wool Blazer">
+                    <h3>The Scholar's Blazer</h3>
+                    <p>$250.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1620251781297-b67e0083d06b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxNHx8bWVuJTIwY2hpbm9zJTIwcGFudHN8ZW58MHx8fHwxNzA4NjQzODIwfDA&ixlib=rb-4.0.3&q=80&w=1080" alt="Tailored Khaki Chinos">
+                    <h3>The Tailored Chino</h3>
+                    <p>$95.00</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1617195415712-4211181283c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxMnx8bWVuJTIwc3dlYXRlcnxlbnwwfHx8fDE3MDg2NDM4NDd8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Merino Wool Sweater">
+                    <h3>The Fine Wool Sweater</h3>
+                    <p>$120.00</p>
+                </div>
+            </div>
+        </section>
+
+        ---
+        
+        <section id="contact" class="section">
+            <h2 class="section-header">Connect With Us</h2>
+            <p>For inquiries, styling advice, or to learn more about our materials, please reach out. We are committed to providing an exceptional experience.</p>
+            <p>Email: info@gentlemanandscholar.com</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Shipping & Returns</a>
+        </div>
+        <p class="footer-text">&copy; 2025 The Gentleman And The Scholar. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
